@@ -44,8 +44,6 @@ set foldlevelstart=99 " Open all folds by default
 set foldnestmax=5 " 2 nested fold max
 nnoremap <space> za " Space open/close folds
 set foldmethod=indent " Fold based on indent level
-nnoremap B ^ " Move to beginning of line
-nnoremap E $ " Move to end of line
 nnoremap ^ <nop> " Disable old way of moving to beginning of line
 nnoremap $ <nop> " Disable old way to move to end of line
 nnoremap gV `[v`] " Highlight last inserted text
