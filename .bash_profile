@@ -1,0 +1,9 @@
+export PS1='\w \$ '
+alias ls="ls -G"
+alias ll="ls -lh"
+alias ftp_tsd="sftp p19-jonasmst@tsd-fx01.tsd.usit.no"
+alias seetsv="column -s $'\t' -t"
+alias seecsv="column -s ',' -t"
+alias lesstsv="seetsv | less -S"
+alias rm="echo Use 'trash' to delete stuff."
+alias office="/Applications/LibreOffice.app/Contents/MacOS/soffice"
