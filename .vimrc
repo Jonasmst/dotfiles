@@ -73,3 +73,7 @@ if has("autocmd")
         au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
                                 \| exe "normal! g`\"" | endif
 endif
+
+" Python-specific stuff
+au BufNewFile,BufRead *.py
+    \ set textwidth=999
