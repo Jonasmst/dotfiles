@@ -7,7 +7,8 @@ export ZSH=/Users/jonas/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+ZSH_THEME="bullet-train"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -84,4 +85,27 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+#
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+DEFAULT_USER=`whoami`
+
+# Aliases
+alias ls="ls -FG"
+alias ll="ls -lh"
+alias ftp_tsd="sftp p19-jonasmst@tsd-fx01.tsd.usit.no"
+alias seetsv="column -s $'\t' -t"
+alias seecsv="column -s ',' -t"
+alias lesstsv="seetsv | less -S"
+alias rm="echo Use 'trash' to delete stuff."
+alias office="/Applications/Libreoffice.app/Contents/MacOS/soffice"
+alias abel="ssh jonasmst@abel.uio.no"
+alias findd="find . -depth 1"
+alias config_vim="vim ~/.vimrc"
+alias source_vim="source ~/.vimrc"
+alias config_zsh="vim ~/.zshrc"
+alias source_zsh="source ~/.zshrc"
+
+# Color stuff
+# If iTerm is not showing colors, uncheck Preferences -> Profiles -> Text -> "Draw bold text in bright colors" (under Text Rendering)
+export CLICOLOR=1
+export LSCOLORS=hxFxCxDxBxegedabagaced
