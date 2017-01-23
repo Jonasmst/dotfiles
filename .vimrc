@@ -20,7 +20,10 @@ Plugin 'tpope/vim-surround' " Surround stuff with brackets etc.
 Plugin 'airblade/vim-gitgutter' " Git info in gutter
 Plugin 'scrooloose/nerdcommenter' " For commenting lines
 Plugin 'scrooloose/nerdtree' " File tree
+Plugin 'Yggdroot/indentLine' " Show indents as lines in python
 Plugin 'python-mode/python-mode' " Tons of python-stuff
+Plugin 'davidhalter/jedi-vim' " Autocompleter for python
+Plugin 'ervandew/supertab' " General autocompleter
 " All of your plugins must be added before the following line
 call vundle#end() " required
 filetype plugin indent on " required
@@ -44,8 +47,8 @@ set foldlevelstart=99 " Open all folds by default
 set foldnestmax=5 " 2 nested fold max
 nnoremap <space> za " Space open/close folds
 set foldmethod=indent " Fold based on indent level
-nnoremap ^ <nop> " Disable old way of moving to beginning of line
-nnoremap $ <nop> " Disable old way to move to end of line
+"nnoremap ^ <nop> " Disable old way of moving to beginning of line
+"nnoremap $ <nop> " Disable old way to move to end of line
 nnoremap gV `[v`] " Highlight last inserted text
 let mapleader="," " Leader is comma
 nnoremap <leader>u :GundoToggle<CR> " Toggle undo
@@ -66,12 +69,16 @@ noremap <leader>y "+y " Yank (copy) to system clipboard
 noremap <leader>g ` " Jump to mark with leader+g + mark
 set scrolloff=9999 " Lines above/below cursor
 set encoding=utf-8
-let g:pymode_lint_ignore="E501,W601" " Ignore certain PEPs, e.g. those complaining about too long lines
+"let g:pymode_lint_ignore="E501,W601" " Ignore certain PEPs, e.g. those complaining about too long lines
+let g:pymode_lint_ignore="E501"
+let g:pymode_rope=0  " Disable rope refactoring lib
+let g:SuperTabDefaultCompletionType = "context"
+let g:jedi#popup_on_dot = 0 " Disable autocompletion on .
 
 " Jump to the last position when reopening a file
 if has("autocmd")
-        au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-                                \| exe "normal! g`\"" | endif
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+				\| exe "normal! g`\"" | endif
 endif
 
 " Python-specific stuff
