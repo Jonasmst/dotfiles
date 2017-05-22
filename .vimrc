@@ -21,8 +21,9 @@ Plugin 'airblade/vim-gitgutter' " Git info in gutter
 Plugin 'scrooloose/nerdcommenter' " For commenting lines
 Plugin 'scrooloose/nerdtree' " File tree
 Plugin 'Yggdroot/indentLine' " Show indents as lines in python
-Plugin 'python-mode/python-mode' " Tons of python-stuff
-Plugin 'davidhalter/jedi-vim' " Autocompleter for python
+"Plugin 'python-mode/python-mode' " Tons of python-stuff
+"Plugin 'davidhalter/jedi-vim' " Autocompleter for python
+Plugin 'vim-syntastic/syntastic' " General-purpose linter
 Plugin 'ervandew/supertab' " General autocompleter
 " All of your plugins must be added before the following line
 call vundle#end() " required
@@ -69,11 +70,8 @@ noremap <leader>y "+y " Yank (copy) to system clipboard
 noremap <leader>g ` " Jump to mark with leader+g + mark
 set scrolloff=9999 " Lines above/below cursor
 set encoding=utf-8
-"let g:pymode_lint_ignore="E501,W601" " Ignore certain PEPs, e.g. those complaining about too long lines
-let g:pymode_lint_ignore="E501"
-let g:pymode_rope=0  " Disable rope refactoring lib
 let g:SuperTabDefaultCompletionType = "context"
-let g:jedi#popup_on_dot = 0 " Disable autocompletion on .
+let g:syntastic_python_flake8_post_args='--ignore=E501,E266'
 
 " Jump to the last position when reopening a file
 if has("autocmd")
