@@ -104,8 +104,16 @@ alias config_vim="vim ~/.vimrc"
 alias source_vim="source ~/.vimrc"
 alias config_zsh="vim ~/.zshrc"
 alias source_zsh="source ~/.zshrc"
+alias config_slate="vim ~/.slate"
+alias source_slate="source ~/.slate"
 
 # Color stuff
 # If iTerm is not showing colors, uncheck Preferences -> Profiles -> Text -> "Draw bold text in bright colors" (under Text Rendering)
 export CLICOLOR=1
 export LSCOLORS=hxFxCxDxBxegedabagaced
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jonas/software/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jonas/software/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jonas/software/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jonas/software/google-cloud-sdk/completion.zsh.inc'; fi
