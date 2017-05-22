@@ -22,6 +22,8 @@ bind i:cmd;alt focus 'iTerm2'
 bind e:cmd;alt focus 'Spark'
 bind s:cmd;alt focus 'Safari'
 bind l:cmd;alt focus 'LibreOffice'
+bind v:cmd;alt focus 'Vivaldi'
+bind g:cmd;alt focus 'Google Chrome'
 
 # The triple keys
 alias triple ctrl;alt;cmd
@@ -44,8 +46,9 @@ bind left:${triple2} ${topleft}
 bind up:${triple2} ${topright}
 
 # Monitor switching bindings
-bind right:alt,ctrl throw 1 resize
-bind left:alt,ctrl throw 0 resize
+#bind right:alt,ctrl throw 1 resize
+bind right:alt,ctrl throw previous resize
+bind left:alt,ctrl throw next resize
 
 # Show hints
 bind a:alt;cmd ${showNormalHint}
