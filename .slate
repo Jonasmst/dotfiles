@@ -1,6 +1,6 @@
 config defaultToCurrentScreen true
 
-# Abstract positions
+# Abstract positions. These are aliases for different areas on the screen.
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
 alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
@@ -13,10 +13,8 @@ alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 alias center move screenOriginX+screenSizeX/6;screenOriginY+screenSizeY/6 2*screenSizeX/3;2*screenSizeY/3
 alias bigCenter move screenOriginX+screenSizeX/12;screenOriginY+screenSizeY/12 10*screenSizeX/12;10*screenSizeY/12
 
-# Alias for hints
-alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
-
 # Bind shortcuts to focus applications
+# cmd + alt + f focuses Firefox, etc.
 bind f:cmd;alt focus 'Firefox'
 bind i:cmd;alt focus 'iTerm2'
 bind e:cmd;alt focus 'Spark'
@@ -25,31 +23,33 @@ bind l:cmd;alt focus 'LibreOffice'
 bind v:cmd;alt focus 'Vivaldi'
 bind g:cmd;alt focus 'Google Chrome'
 
-# The triple keys
+# The triple keys (just aliases to avoid having to type ctrl;alt;cmc, etc all the time)
 alias triple ctrl;alt;cmd
 alias triple2 alt;ctrl;shift
 
-# Bind triple+g to show grid
+# Bind triple+g to show grid. The grid allows you to draw a custom size for a window.
 bind g:${triple} grid padding 0:6,2 1:8,3
 
 # Location bindings
-bind left:${triple} ${lefthalf}
-bind m:${triple} ${full}
-bind right:${triple} ${righthalf}
-bind up:${triple} ${tophalf}
-bind down:${triple} ${bottomhalf}
-bind c:${triple} ${center}
-bind v:${triple} ${bigCenter}
-bind down:${triple2} ${bottomleft}
+bind left:${triple} ${lefthalf}         # triple + left arrow moves window to left half of the screen
+bind m:${triple} ${full}                # triple + m takes up entire screen area (maximize-ish)
+bind right:${triple} ${righthalf}       # triple + right moves window to right half of screen
+bind up:${triple} ${tophalf}            # triple + up moves window to upper half of the screen
+bind down:${triple} ${bottomhalf}       # triple + down moves window to lower half of the screen
+bind c:${triple} ${center}              # triple + c centers window on screen
+bind v:${triple} ${bigCenter}           # triple + v same as above, just a bigger window
+bind down:${triple2} ${bottomleft}      # etc.
 bind right:${triple2} ${bottomright}
 bind left:${triple2} ${topleft}
 bind up:${triple2} ${topright}
 
 # Monitor switching bindings
 #bind right:alt,ctrl throw 1 resize
-bind right:alt,ctrl throw previous resize
-bind left:alt,ctrl throw next resize
+bind right:alt,ctrl throw previous resize   # Ctrl + alt + right arrow moves window to next monitor.
+bind left:alt,ctrl throw next resize        # Ctrl + alt + left arrow moves window to previous monitor.    
 
-# Show hints
-bind a:alt;cmd ${showNormalHint}
+# Alias for hints
+alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
+bind h:cmd;alt ${showNormalHint}  # Show hints. Hints can be used to focus windows by typing its hint letter that's displayed
+
 
