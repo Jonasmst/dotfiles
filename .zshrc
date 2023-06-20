@@ -33,7 +33,7 @@ ZSH_THEME="bullet-train"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -52,7 +52,7 @@ ZSH_THEME="bullet-train"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,6 +106,8 @@ alias config_zsh="vim ~/.zshrc"
 alias source_zsh="source ~/.zshrc"
 alias config_slate="vim ~/.slate"
 alias source_slate="source ~/.slate"
+alias gs="git status"
+alias gd="git diff"
 
 # Color stuff
 # If iTerm is not showing colors, uncheck Preferences -> Profiles -> Text -> "Draw bold text in bright colors" (under Text Rendering)
@@ -113,7 +115,37 @@ export CLICOLOR=1
 export LSCOLORS=hxFxCxDxBxegedabagaced
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jonas/software/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jonas/software/google-cloud-sdk/path.zsh.inc'; fi
+#if [ -f '/Users/jonas/software/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jonas/software/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/jonas/software/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jonas/software/google-cloud-sdk/completion.zsh.inc'; fi
+#if [ -f '/Users/jonas/software/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jonas/software/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH=/Users/jonas/.local/bin:$PATH
+
+# Added to make .. autocomplete to ../
+zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..)  ]] && reply=(..)'
+
+# GPG related stuff
+#export RECAPTCHA_PRIVATE_KEY=6LcgD2UUAAAAADuGqvAQN9YxXFluVlGK0RQC5Q2w
+#export FLASK_APP_SECRET_KEY=thisisourappsecret
+#export DATABASE_URL=postgresql://jonas:pass_Jonas@localhost/guitar_god_db
+#export DATABASE_URL=postgres://skccydlzuwtckf:1c80f57a86a6554d8d90c060da936f8067fad997db70f861b7e456b6c91399ff@ec2-54-217-235-166.eu-west-1.compute.amazonaws.com:5432/de8snclv0do02u
+#export RECAPTCHA_PUBLIC_KEY=6LcgD2UUAAAAALLZZ5z6viGIP3LNFwNp0lHwbV_E
+#export MAILGUN_API_KEY=c705c45fc000cccea527053a41dee024 
+
+alias shrug='echo -n "¯\_(ツ)_/¯"'
+alias weather="curl -s wttr.in/Oslo"
+alias preview="open -a Preview.app"
+
+# Open TSV file in pandas (in a python shell)
+function pat() {
+    python3 -i -c "import pandas as pd; import matplotlib.pyplot as plt; import seaborn as sns; df=pd.read_csv('$1', sep='\t'); print(df.head())"
+}
+# Open CSV file in pandas (in a python shell)
+function pac() {
+    python3 -i -c "import pandas as pd; df=pd.read_csv('$1', sep=','); print(df.head())"
+}
+
+
+source /Users/jonas/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
