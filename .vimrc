@@ -15,9 +15,9 @@ Plugin 'vim-scripts/Gundo' " Visual undo tree
 Plugin 'vim-airline/vim-airline' " Airline
 Plugin 'vim-airline/vim-airline-themes' " Color themes for airline
 Plugin 'majutsushi/tagbar' " Tagbar (list of functions)
-Plugin 'jiangmiao/auto-pairs' " Pare open brackets with closed ones
+"Plugin 'jiangmiao/auto-pairs' " Pare open brackets with closed ones
 Plugin 'tpope/vim-surround' " Surround stuff with brackets etc.
-Plugin 'airblade/vim-gitgutter' " Git info in gutter
+"Plugin 'airblade/vim-gitgutter' " Git info in gutter
 Plugin 'scrooloose/nerdcommenter' " For commenting lines
 Plugin 'scrooloose/nerdtree' " File tree
 Plugin 'Yggdroot/indentLine' " Show indents as lines in python
@@ -82,3 +82,10 @@ endif
 " Python-specific stuff
 au BufNewFile,BufRead *.py
     \ set textwidth=999
+
+" Don't hide quotes in json annotation
+let g:vim_json_syntax_conceal = 0
+
+" Snakemake syntax highlighting
+au BufNewFile,BufRead Snakefile set syntax=snakemake
+au BufNewFile,BufRead *.snake set syntax=snakemake
